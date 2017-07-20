@@ -22,6 +22,12 @@ func EncodeSha256(data string) (encodeStr string) {
 	return
 }
 
+func ConvXstrtoIntDecimal(xStr string) (value int) {
+	valueint64, _ := strconv.ParseInt(xStr, 10, 0)
+	value = int(valueint64)
+	return value
+}
+
 func ConvXstrtoInt(xStr string) (value int) {
 	valueint64, _ := strconv.ParseInt(xStr, 16, 0)
 	value = int(valueint64)
