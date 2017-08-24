@@ -56,6 +56,16 @@ func GetTime() (timeStr string) {
 	return
 }
 
+func CreateStamp() (dataTimeStr string) {
+	timeLayout := "2006-01-02 15:04:05"
+	sr := time.Now().Unix()
+	dataTimeStr = time.Unix(sr, 0).Format(timeLayout)
+	dataTimeStr = strings.Replace(dataTimeStr, " ", "", -1)
+	dataTimeStr = strings.Replace(dataTimeStr, ":", "", -1)
+	dataTimeStr = strings.Replace(dataTimeStr, "-", "", -1)
+	return
+}
+
 func GetTimeMin() (timeStr string) {
 	timeLayout := "2006-01-02 15:04:05"
 	sr := time.Now().Unix()
