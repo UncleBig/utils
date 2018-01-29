@@ -4,6 +4,7 @@ import (
 	"crypto/sha256"
 	"crypto/tls"
 	"fmt"
+	"math/rand"
 	"os"
 	"sort"
 	"strconv"
@@ -116,6 +117,25 @@ func SortMaps(sortMap map[string]string, appKey string) (sortedStr string) {
 	}
 
 	return
+}
+
+//  生成最大范围内随机数
+func GenerateRandnumWithin(max int) int {
+	rand.Seed(time.Now().Unix())
+	randNum := rand.Intn(max)
+
+	fmt.Printf("rand is %v\n", randNum)
+
+	return randNum
+}
+
+//  生成一个区间范围的随机数
+func GenerateRangeNumBetween(min, max int) int {
+	rand.Seed(time.Now().Unix())
+	randNum := rand.Intn(max - min)
+	randNum = randNum + min
+	fmt.Printf("rand is %v\n", randNum)
+	return randNum
 }
 
 func appendToFile(fileName string, content string) error {
